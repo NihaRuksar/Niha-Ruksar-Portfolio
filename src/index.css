@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: var(--theme-bg);
+  --color-charcoal-light: var(--theme-bg-light);
+  --color-cyan: var(--theme-accent);
+  --color-gold: var(--theme-accent); /* Reusing gold config as cyan for seamless transition */
+  --color-offwhite: var(--theme-text);
+  --color-muted: var(--theme-muted);
+  --color-white: var(--theme-white);
+  --color-black: var(--theme-black);
+
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+:root {
+  --theme-bg: #05050a;
+  --theme-bg-light: #0A0A14;
+  --theme-accent: #7C8CFF;
+  --theme-accent-light: #5663FF;
+  --theme-highlight: #F5F7FF;
+  --theme-text: #F5F5F5;
+  --theme-muted: #B5B8C5;
+  --theme-white: #ffffff;
+  --theme-black: #000000;
+}
+
+:root.light {
+  --theme-bg: #F0F4FF;
+  --theme-bg-light: #FFFFFF;
+  --theme-accent: #0099CC;
+  --theme-accent-light: #007A99;
+  --theme-text: #0A0F1E;
+  --theme-muted: #6B7280;
+  --theme-white: #000000;
+  --theme-black: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-offwhite);
+  font-family: var(--font-sans);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+
+/* Custom Utilities */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%);
+  backdrop-filter: blur(20px) saturate(120%) contrast(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%) contrast(110%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 4px 30px rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.15), 0 12px 32px rgba(0, 0, 0, 0.3), 0 24px 64px rgba(0, 0, 0, 0.4);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.01) 100%);
+  backdrop-filter: blur(20px) saturate(120%) contrast(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%) contrast(110%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 4px 20px rgba(255, 255, 255, 0.05), 0 2px 8px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 28px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 100%);
+  box-shadow: inset 0 4px 30px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(124, 140, 255, 0.15), 0 16px 48px rgba(124, 140, 255, 0.2), 0 24px 80px rgba(124, 140, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Custom Scrollbar for Modal content */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(124, 140, 255, 0.6) rgba(255, 255, 255, 0.05);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(124, 140, 255, 0.6);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 140, 255, 0.9);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(to right, var(--theme-accent), var(--theme-accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Niha Ruksar Portfolio",
+  "description": "A luxury 2D portfolio website for Niha Ruksar, Full Stack & AI Developer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
