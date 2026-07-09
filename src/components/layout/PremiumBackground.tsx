@@ -110,7 +110,7 @@ export function PremiumBackground() {
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.45)',
+          backgroundColor: 'rgba(0, 0, 0, 0.70)',
           transition: 'background-color 0.6s ease-in-out'
         }}
       />
