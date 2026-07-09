@@ -1,10 +1,7 @@
-"use client";
-
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useScroll, useTransform } from 'motion/react';
-import { ReactLenis } from 'lenis/react';
-import 'lenis/dist/lenis.css';
 import { Github, ArrowRight, X } from 'lucide-react';
+import hrAssistant from '../../assets/images/hr-assistant.png';
 
 const projects = [
   {
@@ -20,7 +17,7 @@ const projects = [
       'ORM-based database layer with SQLAlchemy'
     ],
     tech: ['Python', 'FastAPI', 'React', 'Redux Toolkit', 'Tailwind CSS', 'LangChain', 'LangGraph', 'Groq API', 'MySQL', 'SQLAlchemy', 'REST APIs', 'RBAC', 'Git'],
-    image: 'https://i.ibb.co/nNDPWBgn/resized-image.png',
+    image: hrAssistant,
     demoUrl: '#',
     tags: ['In Progress', 'AI']
   },
@@ -133,7 +130,6 @@ const projects = [
 ];
 
 interface StickyCardProps {
-  key?: string | number;
   imgUrl?: string;
   project?: any;
   onSelect?: (p: any) => void;
@@ -226,7 +222,7 @@ const Skiper34 = () => {
   }, [selectedProject]);
 
   return (
-    <ReactLenis root>
+    <>
       <section 
         id="projects" 
         className="relative flex w-full flex-col items-center gap-[6vh] md:gap-[8vh] px-4 pt-16 md:pt-24 pb-[20vh] z-30"
@@ -275,7 +271,6 @@ const Skiper34 = () => {
         </div>
       </section>
 
-      {/* Expanded Project Modal View */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -431,29 +426,13 @@ const Skiper34 = () => {
                     </a>
                   )}
                 </motion.div>
-                
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </ReactLenis>
+    </>
   );
 };
 
 export { Skiper34, StickyCard_003, Skiper34 as AllProjectsAccordion };
-
-/**
- * Skiper 34 StickyCard_003 — React + framer motion + lenis
- *
- * License & Usage:
- * - Free to use and modify in both personal and commercial projects.
- * - Attribution to Skiper UI is required when using the free version.
- * - No attribution required with Skiper UI Pro.
- *
- * Feedback and contributions are welcome.
- *
- * Author: @gurvinder-singh02
- * Website: https://gxuri.me
- * Twitter: https://x.com/Gur__vi
- */
