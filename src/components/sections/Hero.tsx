@@ -58,11 +58,15 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden -mt-16 sm:-mt-24 md:-mt-32 pt-0 pb-6 md:pb-8">
+    <section 
+      ref={ref} 
+      id="home" 
+      className="relative w-full min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-20 pb-12"
+    >
       
       <motion.div 
         style={{ opacity, y, filter }}
-        className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col items-center"
+        className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center"
       >
         
         {/* Outer Glass Panel Card */}
@@ -70,7 +74,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-panel w-full h-fit flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-3 md:p-4"
+          className="glass-panel w-full h-auto flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-3 md:p-4"
         >
           {/* Inner Layer Background Glows */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">

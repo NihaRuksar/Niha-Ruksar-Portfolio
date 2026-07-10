@@ -1,7 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
 import { Navbar } from './components/layout/Navbar';
 import { CustomCursor } from './components/layout/CustomCursor';
 import { PremiumBackground } from './components/layout/PremiumBackground';
@@ -14,11 +10,11 @@ import { Footer } from './components/layout/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen font-sans text-[#F5F5F5] overflow-x-clip pt-safe selection:bg-[#7C8CFF] selection:text-white relative bg-transparent">
+    <div className="min-h-screen w-full font-sans text-[#F5F5F5] overflow-x-hidden relative bg-transparent m-0 p-0">
       <PremiumBackground />
       <CustomCursor />
       <Navbar />
-      <main className="relative z-10 flex flex-col">
+      <main className="relative z-10 flex flex-col w-full m-0 p-0">
         <Hero />
         <AllProjectsAccordion />
         <TechStack />

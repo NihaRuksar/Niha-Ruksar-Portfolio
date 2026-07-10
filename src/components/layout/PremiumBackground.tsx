@@ -8,26 +8,20 @@ export function PremiumBackground() {
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    // initial check
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // 3D Glass Discs Background Image with subtle mouse parallax
   const bgImage = "https://i.ibb.co/chxNypW4/laptop.png";
-
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
 
-  // Mouse interactivity
   const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 0);
   const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 0);
 
-  // Smooth mouse coordinates
   const smoothMouseX = useSpring(mouseX, { stiffness: 40, damping: 25 });
   const smoothMouseY = useSpring(mouseY, { stiffness: 40, damping: 25 });
 
-  // Parallax offsets based on mouse movement
   const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 1000;
   const windowHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
   
@@ -36,11 +30,9 @@ export function PremiumBackground() {
   const mouseMoveXReverse = useTransform(smoothMouseX, [0, windowWidth], [20, -20]);
   const mouseMoveYReverse = useTransform(smoothMouseY, [0, windowHeight], [20, -20]);
 
-  // A light that loosely follows the cursor
   const mouseGlowX = useTransform(smoothMouseX, (x) => x - 300);
   const mouseGlowY = useTransform(smoothMouseY, (y) => y - 300);
 
-  // Pre-calculate particle properties to prevent jumping on re-renders
   const particles = useMemo(() => {
     return Array.from({ length: 12 }).map((_, i) => ({
       top: `${Math.random() * 100}%`,
@@ -70,19 +62,17 @@ export function PremiumBackground() {
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#05050A]">
-      {/* Container for the background that handles responsive rotation */}
+      {/* Structural Containment Layer Fix */}
       <div 
-        className="absolute top-1/2 left-1/2 flex items-center justify-center will-change-transform"
+        className="absolute inset-0 flex items-center justify-center overflow-hidden"
         style={{
-          width: isMobile ? '110vh' : '110vw',
-          height: isMobile ? '110vw' : '110vh',
-          transform: `translate(-50%, -50%) rotate(${isMobile ? 90 : 0}deg)`,
+          transform: isMobile ? 'rotate(90deg) scale(1.2)' : 'none',
           transition: 'transform 0.6s ease-in-out',
         }}
       >
-        {/* 3D Glass Discs Background Image with subtle mouse parallax */}
+        {/* 3D Glass Discs Background Image */}
         <motion.div 
-          className="w-full h-full"
+          className="w-full h-full min-w-full min-h-full"
           style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: 'cover',
@@ -107,21 +97,12 @@ export function PremiumBackground() {
       </div>
 
       {/* Dark overlay for readability */}
-      <div 
-        className="absolute inset-0 w-full h-full"
-        style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.55)',
-          transition: 'background-color 0.6s ease-in-out'
-        }}
-      />
+      <div className="absolute inset-0 w-full h-full bg-black/55 transition-colors duration-500" />
 
       {/* Mouse Follow Glow - Interactive */}
       <motion.div
         className="absolute w-[600px] h-[600px] rounded-full mix-blend-screen blur-[120px]"
-        style={{
-          x: mouseGlowX,
-          y: mouseGlowY,
-        }}
+        style={{ x: mouseGlowX, y: mouseGlowY }}
         initial={{ opacity: 0 }}
         animate={{ 
           opacity: isHovering ? 1 : 0.8,
@@ -139,11 +120,7 @@ export function PremiumBackground() {
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.6, 0.3],
         }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Soft radial glow breathing effect */}
@@ -154,14 +131,10 @@ export function PremiumBackground() {
           scale: [1, 1.05, 1],
           opacity: [0.4, 0.7, 0.4],
         }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Soft moving light streaks reacting to mouse */}
+      {/* Soft moving light streaks */}
       <motion.div
         className="absolute top-[30%] left-[-20%] w-[150%] h-[1px] blur-[2px] transform -rotate-12"
         style={{ y: mouseMoveYReverse, x: mouseMoveXReverse }}
@@ -175,7 +148,7 @@ export function PremiumBackground() {
         transition={{ duration: isHovering ? 6 : 12, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Minimal floating particles reacting to mouse */}
+      {/* Minimal floating particles */}
       {particles.map((p, i) => (
         <motion.div
           key={i}
@@ -200,7 +173,7 @@ export function PremiumBackground() {
         />
       ))}
 
-      {/* Smooth animated grain texture */}
+      {/* Grain texture */}
       <div 
         className="absolute inset-0 w-full h-full opacity-[0.04] mix-blend-overlay pointer-events-none"
         style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
