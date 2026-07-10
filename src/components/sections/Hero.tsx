@@ -58,7 +58,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden pt-24 pb-8 md:pt-28 md:pb-12">
+    <section ref={ref} id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden pt-20 pb-6 md:pt-24 md:pb-8">
       
       <motion.div 
         style={{ opacity, y, filter }}
@@ -70,7 +70,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-panel w-full flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-6 md:p-10"
+          className="glass-panel w-full flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-4 md:p-6"
         >
           {/* Inner Background for glass effect with more depth and subtle animations */}
           <div className="absolute inset-0 overflow-hidden rounded-[32px] m-3 md:m-4 bg-[#020205]/40 border border-white/5 pointer-events-none z-0 shadow-inner backdrop-blur-xl backdrop-saturate-150 backdrop-brightness-110">
