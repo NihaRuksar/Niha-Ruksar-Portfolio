@@ -58,11 +58,11 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-20 pb-6 md:pt-24 md:pb-8">
+    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden pt-20 pb-6 md:pt-24 md:pb-8">
       
       <motion.div 
         style={{ opacity, y, filter }}
-        className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col items-center justify-center"
+        className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col items-center"
       >
         
         {/* Single Centered Glass Card */}
