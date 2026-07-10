@@ -19,7 +19,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-panel w-full p-6 md:p-8 relative overflow-hidden group"
+          className="glass-panel w-full h-fit p-6 md:p-8 relative overflow-hidden group"
         >
           {/* Internal Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] aspect-square bg-[#7C8CFF]/5 rounded-full blur-[100px] pointer-events-none mix-blend-screen transition-opacity duration-700 group-hover:opacity-100 group-active:opacity-100 opacity-60" />
