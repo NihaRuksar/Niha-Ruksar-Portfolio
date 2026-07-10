@@ -58,23 +58,22 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden pt-20 pb-6 md:pt-24 md:pb-8">
+    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden pt-16 pb-6 md:pt-20 md:pb-8">
       
       <motion.div 
         style={{ opacity, y, filter }}
         className="relative z-10 w-full max-w-3xl mx-auto px-4 sm:px-6 flex flex-col items-center"
       >
         
-        {/* Single Centered Glass Card */}
+        {/* Outer Glass Panel Card */}
         <motion.div 
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-panel w-full h-fit flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-4 md:p-6"
+          className="glass-panel w-full h-fit flex flex-col items-center justify-start relative overflow-hidden rounded-[36px] text-center transition-all duration-700 ease-out z-10 p-3 md:p-4"
         >
-          {/* Inner Background for glass effect with more depth and subtle animations */}
-          <div className="absolute inset-0 overflow-hidden rounded-[32px] m-3 md:m-4 bg-[#020205]/40 border border-white/5 pointer-events-none z-0 shadow-inner backdrop-blur-xl backdrop-saturate-150 backdrop-brightness-110">
-            {/* Ambient inner card glows */}
+          {/* Inner Layer Background Glows */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
             <motion.div 
               animate={{ opacity: [0.1, 0.25, 0.1], scale: [1, 1.1, 1] }} 
               transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
@@ -88,7 +87,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-[#7C8CFF]/[0.05]"></div>
           </div>
 
-          {/* Reactive background glow */}
+          {/* Reactive hover background glows */}
           <div 
             className={`absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px] pointer-events-none transition-colors duration-700 z-0 ${
               hoveredButton === 'projects' ? 'bg-[#7C8CFF]/25' : hoveredButton === 'contact' ? 'bg-white/15' : 'bg-[#7C8CFF]/15'
@@ -100,8 +99,9 @@ export function Hero() {
             }`} 
           />
 
-          {/* Top Content */}
-          <div className="flex flex-col items-center justify-center relative z-20 pt-4 pb-2 w-full">
+          {/* Inner Beautifully Suspended Glass Content Frame (Double Layout Glass Look) */}
+          <div className="w-full h-full flex flex-col items-center justify-start relative z-20 rounded-[28px] bg-[#020205]/40 border border-white/5 shadow-inner backdrop-blur-xl px-4 py-8 md:p-10">
+            
             {/* Available for work Pill */}
             <div className="mb-6 inline-flex items-center gap-2.5 py-1.5 px-4 rounded-full border border-[#7C8CFF]/30 bg-[#7C8CFF]/10 backdrop-blur-md shadow-[0_0_15px_rgba(124,140,255,0.2)]">
               <span className="w-2 h-2 rounded-full bg-[#7C8CFF] animate-pulse shadow-[0_0_8px_rgba(124,140,255,0.8)]" />
@@ -116,7 +116,7 @@ export function Hero() {
               <div className="h-[1px] w-6 md:w-12 bg-gradient-to-l from-transparent to-[#F5F7FF]/30"></div>
             </div>
 
-            <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-[#F5F5F5] mb-8 md:mb-10 font-light">
+            <h1 className="font-serif text-3xl md:text-5xl tracking-tight text-[#F5F5F5] mb-6 md:mb-8 font-light">
               <span className="italic text-[#B5B8C5]">Hi, I'm</span> <span className="font-medium drop-shadow-md">Niha Ruksar</span>
             </h1>
 
