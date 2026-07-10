@@ -31,7 +31,7 @@ export function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative -mt-20 md:-mt-32 z-20 py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
+      className="relative z-20 py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
     >
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-20 items-center justify-between relative z-10">
