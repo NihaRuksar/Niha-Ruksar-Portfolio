@@ -77,7 +77,7 @@ export function TechStack() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden relative -mt-20 md:-mt-32 z-40"
+      className="py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden relative z-40"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
