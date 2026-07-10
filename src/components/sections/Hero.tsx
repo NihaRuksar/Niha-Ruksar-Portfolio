@@ -58,7 +58,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative min-h-[65vh] md:min-h-[70vh] w-full flex flex-col items-center justify-center overflow-hidden pt-28 pb-10 md:pt-32 md:pb-16">
+    <section ref={ref} id="home" className="relative w-full flex flex-col items-center justify-center overflow-hidden pt-24 pb-8 md:pt-28 md:pb-12">
       
       <motion.div 
         style={{ opacity, y, filter }}
