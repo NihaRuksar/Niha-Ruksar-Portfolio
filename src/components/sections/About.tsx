@@ -31,7 +31,7 @@ export function About() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative z-20 py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
+      className="relative -mt-20 md:-mt-32 z-20 py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden"
     >
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-20 items-center justify-between relative z-10">
@@ -81,7 +81,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="glass-card p-8 md:p-10"
+            className="glass-panel p-8 md:p-10"
           >
               <motion.div 
               className="space-y-6 font-sans text-base md:text-lg text-[#B5B8C5] font-light leading-relaxed mb-10"
