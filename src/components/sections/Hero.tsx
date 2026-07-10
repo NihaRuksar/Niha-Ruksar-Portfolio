@@ -58,7 +58,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden pt-16 pb-6 md:pt-20 md:pb-8">
+    <section ref={ref} id="home" className="relative w-full flex flex-col items-start overflow-hidden -mt-16 sm:-mt-24 md:-mt-32 pt-0 pb-6 md:pb-8">
       
       <motion.div 
         style={{ opacity, y, filter }}
