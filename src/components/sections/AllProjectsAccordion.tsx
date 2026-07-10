@@ -1,23 +1,19 @@
+"use client";
+
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useScroll, useTransform } from 'motion/react';
+import { ReactLenis } from 'lenis/react';
+import 'lenis/dist/lenis.css';
 import { Github, ArrowRight, X } from 'lucide-react';
-import hrAssistant from '../../assets/images/hr-assistant.png';
 
 const projects = [
   {
     id: 6,
-    title: 'AI-Powered Smart HR Assistant',
-    subtitle: 'An intelligent recruitment platform that screens resumes, scores candidates, and generates interview questions — powered by LangGraph agents and Groq LLM.',
-    description: 'A full-stack HR management system where recruiters can post job listings, manage candidate pipelines, and delegate the heavy lifting to an AI agent that reads resumes, scores applicants against job requirements, and auto-generates role-specific interview questions — all within a role-protected dashboard.',
-    keyChallenges: [
-      'Multi-step LangGraph agent pipeline',
-      'Role-Based Access Control (Admin / Recruiter / Viewer)',
-      'Async API design with FastAPI',
-      'State management with Redux',
-      'ORM-based database layer with SQLAlchemy'
-    ],
+    title: 'AI Code Review Assistant',
+    subtitle: 'An intelligent code review platform that analyses your code, scores quality, and suggests improvements — powered by LangGraph agents and Groq LLM.',
+    description: 'A full-stack developer tool where users can paste or upload their code and receive instant AI-powered feedback — including quality scoring, bug detection, best practice suggestions, and line-by-line comments — all within a clean, responsive dashboard.',
     tech: ['Python', 'FastAPI', 'React', 'Redux Toolkit', 'Tailwind CSS', 'LangChain', 'LangGraph', 'Groq API', 'MySQL', 'SQLAlchemy', 'REST APIs', 'RBAC', 'Git'],
-    image: hrAssistant,
+    image: 'https://i.ibb.co/fzLSFKPw/Chat-GPT-Image-Jul-10-2026-10-46-38-AM.png',
     demoUrl: '#',
     tags: ['In Progress', 'AI']
   },
@@ -130,6 +126,7 @@ const projects = [
 ];
 
 interface StickyCardProps {
+  key?: string | number;
   imgUrl?: string;
   project?: any;
   onSelect?: (p: any) => void;
@@ -165,8 +162,8 @@ const StickyCard_003 = ({ imgUrl, project, onSelect, idx, total, progress }: Sti
           <img
             src={displayImage}
             alt={project.title}
-            className={`w-full h-full object-contain bg-[#0A0A0E] transition-transform duration-700 group-hover:scale-105 ${
-              project.id === 5 ? 'p-8 sm:p-12 bg-[#020205]' : ''
+            className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+              project.id === 5 ? 'object-contain p-8 sm:p-12 bg-[#020205]' : 'object-contain bg-[#0A0A0E]'
             }`}
           />
           {project.tags && project.tags.length > 0 && (
@@ -222,7 +219,7 @@ const Skiper34 = () => {
   }, [selectedProject]);
 
   return (
-    <>
+    <ReactLenis root>
       <section 
         id="projects" 
         className="relative flex w-full flex-col items-center gap-[6vh] md:gap-[8vh] px-4 pt-16 md:pt-24 pb-[20vh] z-30"
@@ -271,6 +268,7 @@ const Skiper34 = () => {
         </div>
       </section>
 
+      {/* Expanded Project Modal View */}
       <AnimatePresence>
         {selectedProject && (
           <motion.div
@@ -426,13 +424,29 @@ const Skiper34 = () => {
                     </a>
                   )}
                 </motion.div>
+                
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </ReactLenis>
   );
 };
 
 export { Skiper34, StickyCard_003, Skiper34 as AllProjectsAccordion };
+
+/**
+ * Skiper 34 StickyCard_003 — React + framer motion + lenis
+ *
+ * License & Usage:
+ * - Free to use and modify in both personal and commercial projects.
+ * - Attribution to Skiper UI is required when using the free version.
+ * - No attribution required with Skiper UI Pro.
+ *
+ * Feedback and contributions are welcome.
+ *
+ * Author: @gurvinder-singh02
+ * Website: https://gxuri.me
+ * Twitter: https://x.com/Gur__vi
+ */
