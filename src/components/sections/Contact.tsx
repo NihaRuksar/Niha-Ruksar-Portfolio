@@ -9,7 +9,7 @@ export function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative py-16 md:py-24 px-6 md:px-12 lg:px-24 overflow-hidden -mt-20 md:-mt-32 z-50"
+      className="relative py-10 md:py-16 px-6 md:px-12 lg:px-24 overflow-hidden z-50"
     >
       
       <div className="max-w-4xl mx-auto flex flex-col items-center justify-center text-center relative z-10">
